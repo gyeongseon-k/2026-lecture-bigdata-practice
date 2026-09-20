@@ -1,0 +1,189 @@
+{
+  "runs": [
+    {
+      "n": 500,
+      "traced": true,
+      "brute_s": 0.6391367669998544,
+      "brute_calls": 124750,
+      "brute_peak_bytes": 11288,
+      "lsh_s": 2.0892044830002305,
+      "lsh_calls": 38,
+      "lsh_peak_bytes": 2051748
+    },
+    {
+      "n": 1000,
+      "traced": true,
+      "brute_s": 2.6037971030000335,
+      "brute_calls": 499500,
+      "brute_peak_bytes": 12248,
+      "lsh_s": 2.608388494999872,
+      "lsh_calls": 91,
+      "lsh_peak_bytes": 3121932
+    },
+    {
+      "n": 2000,
+      "traced": true,
+      "brute_s": 11.240574350000315,
+      "brute_calls": 1999000,
+      "brute_peak_bytes": 21720,
+      "lsh_s": 3.725405048000084,
+      "lsh_calls": 237,
+      "lsh_peak_bytes": 4928492
+    },
+    {
+      "n": 250,
+      "traced": true,
+      "brute_s": 0.14926817500008838,
+      "brute_calls": 31125,
+      "brute_peak_bytes": 8040,
+      "lsh_s": 1.8712614250002844,
+      "lsh_calls": 17,
+      "lsh_peak_bytes": 1402408
+    },
+    {
+      "n": 750,
+      "traced": true,
+      "brute_s": 1.4780297610000162,
+      "brute_calls": 280875,
+      "brute_peak_bytes": 11352,
+      "lsh_s": 2.434999469000104,
+      "lsh_calls": 68,
+      "lsh_peak_bytes": 2624772
+    },
+    {
+      "n": 4000,
+      "traced": true,
+      "brute_s": 52.4679163349997,
+      "brute_calls": 7998000,
+      "brute_peak_bytes": 29424,
+      "lsh_s": 7.437528236999697,
+      "lsh_calls": 724,
+      "lsh_peak_bytes": 8417868
+    },
+    {
+      "n": 8000,
+      "traced": true,
+      "brute_s": 236.6378003320001,
+      "brute_calls": 31996000,
+      "brute_peak_bytes": 68248,
+      "lsh_s": 11.427025528000286,
+      "lsh_calls": 2566,
+      "lsh_peak_bytes": 15111284
+    },
+    {
+      "n": 250,
+      "traced": false,
+      "brute_s": 0.10482396699990204,
+      "brute_calls": 31125,
+      "brute_peak_bytes": null,
+      "lsh_s": 0.14726324599996587,
+      "lsh_calls": 17,
+      "lsh_peak_bytes": null
+    },
+    {
+      "n": 500,
+      "traced": false,
+      "brute_s": 0.4253138429999126,
+      "brute_calls": 124750,
+      "brute_peak_bytes": null,
+      "lsh_s": 0.22508283700017273,
+      "lsh_calls": 38,
+      "lsh_peak_bytes": null
+    },
+    {
+      "n": 750,
+      "traced": false,
+      "brute_s": 0.9749420899997858,
+      "brute_calls": 280875,
+      "brute_peak_bytes": null,
+      "lsh_s": 0.3023971550001079,
+      "lsh_calls": 68,
+      "lsh_peak_bytes": null
+    },
+    {
+      "n": 1000,
+      "traced": false,
+      "brute_s": 1.7407150320000255,
+      "brute_calls": 499500,
+      "brute_peak_bytes": null,
+      "lsh_s": 0.3835669869999947,
+      "lsh_calls": 91,
+      "lsh_peak_bytes": null
+    },
+    {
+      "n": 2000,
+      "traced": false,
+      "brute_s": 7.531801135000023,
+      "brute_calls": 1999000,
+      "brute_peak_bytes": null,
+      "lsh_s": 0.7442790989998684,
+      "lsh_calls": 237,
+      "lsh_peak_bytes": null
+    },
+    {
+      "n": 4000,
+      "traced": false,
+      "brute_s": 33.91444769899999,
+      "brute_calls": 7998000,
+      "brute_peak_bytes": null,
+      "lsh_s": 1.4673613820000355,
+      "lsh_calls": 724,
+      "lsh_peak_bytes": null
+    },
+    {
+      "n": 8000,
+      "traced": false,
+      "brute_s": 156.24912530099982,
+      "brute_calls": 31996000,
+      "brute_peak_bytes": null,
+      "lsh_s": 3.3873508100000436,
+      "lsh_calls": 2566,
+      "lsh_peak_bytes": null
+    },
+    {
+      "n": 300,
+      "traced": false,
+      "brute_s": 0.1692450949999511,
+      "brute_calls": 44850,
+      "brute_peak_bytes": null,
+      "lsh_s": 0.19331663399998433,
+      "lsh_calls": 21,
+      "lsh_peak_bytes": null
+    },
+    {
+      "n": 350,
+      "traced": false,
+      "brute_s": 0.23849122899991926,
+      "brute_calls": 61075,
+      "brute_peak_bytes": null,
+      "lsh_s": 0.20806358900017585,
+      "lsh_calls": 27,
+      "lsh_peak_bytes": null
+    },
+    {
+      "n": 400,
+      "traced": false,
+      "brute_s": 0.3020228670002325,
+      "brute_calls": 79800,
+      "brute_peak_bytes": null,
+      "lsh_s": 0.22469723699987298,
+      "lsh_calls": 30,
+      "lsh_peak_bytes": null
+    },
+    {
+      "n": 450,
+      "traced": false,
+      "brute_s": 0.39123827399998845,
+      "brute_calls": 101025,
+      "brute_peak_bytes": null,
+      "lsh_s": 0.24133105700002488,
+      "lsh_calls": 31,
+      "lsh_peak_bytes": null
+    }
+  ],
+  "machine": {
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "python": "3.12.3"
+  }
+}
