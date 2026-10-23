@@ -30,7 +30,15 @@ BASKETS = [
 
 def frequent_singletons(baskets, support):
     """Items appearing in at least `support` baskets. Return {item: count}."""
-    raise NotImplementedError("pass one")
+    # 항목별 등장 바구니 수를 센다. 바구니가 set 이라 같은 항목이 한 바구니에
+    # 두 번 들어갈 수 없으므로, 이 세기가 곧 '몇 개의 바구니에 나왔나' 가 된다.
+    counts = {}
+    for basket in baskets:
+        for item in basket:
+            counts[item] = counts.get(item, 0) + 1
+
+    # support '이상' 만 남긴다 (초과가 아니라 >=).
+    return {item: c for item, c in counts.items() if c >= support}
 
 
 def frequent_pairs(baskets, support):
@@ -44,7 +52,27 @@ def frequent_pairs(baskets, support):
     A-Priori exists to avoid, and it will pass this harness while failing the
     point. Task 3 measures whether you actually did it.
     """
-    raise NotImplementedError("pass two")
+    # 패스 1. 여기서 살아남은 항목만 패스 2 로 넘긴다.
+    singles = frequent_singletons(baskets, support)
+    survivors = set(singles)        # dict 를 set() 에 넣으면 '키' 만 모인다
+
+    # 패스 2.
+    pair_counts = {}
+    for basket in baskets:
+        # A-Priori 의 핵심. 조합을 만들기 '전에' 바구니를 줄인다. 살아남지
+        # 못한 항목은 여기서 빠지므로, 그 항목이 들어간 쌍은 애초에 만들어지지
+        # 않는다 (만들어서 세고 나중에 버리는 것이 아니다).
+        items = sorted(basket & survivors)
+
+        # 줄인 목록으로만 2 개 조합을 만든다.
+        for pair in combinations(items, 2):
+            pair_counts[pair] = pair_counts.get(pair, 0) + 1
+
+    # 개수가 support 이상인 쌍만 남긴다. 이 거르기는 '개수' 기준이고,
+    # 세어 보기 전에는 개수를 알 수 없으므로 피할 수 없는 단계다.
+    # 금지된 것은 '항목이 빈발했는지' 를 여기서 따지는 것이다 - 그 정보는
+    # 패스 1 에서 이미 알고 있었고, 위에서 바구니를 줄일 때 이미 썼다.
+    return {frozenset(p): c for p, c in pair_counts.items() if c >= support}
 
 
 def association_rules(baskets, support, min_confidence):
@@ -60,7 +88,29 @@ def association_rules(baskets, support, min_confidence):
     rule with high confidence and lift near 1 tells you nothing - the consequent
     was common anyway - and §6.1.3 is about why that matters more than it looks.
     """
-    raise NotImplementedError("rules")
+    singles = frequent_singletons(baskets, support)
+    pairs = frequent_pairs(baskets, support)
+    n = len(baskets)
+
+    rules = []
+    for pair, pair_count in pairs.items():
+        # frozenset 은 순서가 없으므로 sorted 로 두 항목을 꺼낸다.
+        a, b = sorted(pair)
+
+        # 쌍 하나에서 방향 두 개를 만든다. confidence 는 대칭이 아니므로
+        # (a->b) 와 (b->a) 는 서로 다른 주장이고 값도 다를 수 있다.
+        for head, tail in ((a, b), (b, a)):
+            # 분모는 '출발점' 의 support. 방향마다 달라지는 자리다.
+            confidence = pair_count / singles[head]
+            if confidence >= min_confidence:
+                # 분모는 '도착점' 의 자체 비율. confidence 와 반대쪽이다.
+                lift = confidence / (singles[tail] / n)
+                rules.append((head, tail, confidence, lift))
+
+    # confidence 내림차순. 원소 하나가 (head, tail, confidence, lift) 이므로
+    # 네 번째가 아니라 세 번째 값([2]) 이 confidence 다.
+    rules.sort(key=lambda r: r[2], reverse=True)
+    return rules
 
 
 # ------------------------------------------------------------------- harness
